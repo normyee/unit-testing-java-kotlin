@@ -1,4 +1,4 @@
 package com.normyee.unitjava.fake;
 
-public class recipeRepository {
+public class recipeRepositoryFake {
 }
