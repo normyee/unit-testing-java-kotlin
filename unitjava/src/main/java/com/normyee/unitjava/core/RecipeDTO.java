@@ -1,4 +1,4 @@
 package com.normyee.unitjava.core;
 
-public class recipeDTO {
+public class RecipeDTO {
 }
