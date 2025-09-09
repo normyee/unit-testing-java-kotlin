@@ -1,4 +1,7 @@
+import fake.MainFake
 import kotlinx.coroutines.runBlocking
+import org.example.Pet
+import org.example.PetService
 import org.example.countXO
 import org.example.divide
 import org.example.tellCatFact
@@ -73,4 +76,29 @@ class DivideTest() {
     }
 }
 
-class
+class PetServiceTest() {
+    private val _petService = PetService(MainFake.PetRepositoryFake())
+
+    @Test
+    @DisplayName("Create a new pet")
+    fun testCreatePet() {
+
+    val mockData = Pet(null, "Cat", 2, "Link", "pet_owner@pet.com")
+
+       val createdPet = this._petService.create(mockData)
+
+        Assertions.assertEquals(1, createdPet.id)
+    }
+
+    @Test
+    fun `find pet by id`() {
+        val mockData = Pet(null, "Cat", 2, "Link", "pet_owner@pet.com")
+
+        this._petService.create(mockData)
+
+        val foundPet = this._petService.findById(1)
+
+        Assertions.assertNotNull(foundPet)
+        Assertions.assertEquals(1, foundPet?.id)
+    }
+}
