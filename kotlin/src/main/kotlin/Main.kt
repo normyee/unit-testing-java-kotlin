@@ -45,12 +45,20 @@ fun divide(numA: Int, numbB: Int): Int {
     return numA / numbB
 }
 
+class Pet(var id: Int?, val animal: String, var age: Int, name: String, var ownerEmail: String)
 
-interface UserRepository {
-    fun getUserById(id: String): User?
+interface IPetRepository {
+    fun create(pet: Pet): Pet
+    fun findById(i: Int): Pet?
 }
 
+class PetService(private val _petRepository: IPetRepository) {
 
-class userService {
+   fun create(pet: Pet): Pet {
+      return this._petRepository.create(pet)
+   }
 
+    fun findById(id: Int): Pet? {
+        return this._petRepository.findById(id)
+    }
 }
