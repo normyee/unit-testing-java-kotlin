@@ -1,10 +1,18 @@
 package com.normyee.unitjava.core;
 
 public class RecipeEntity {
-    private Integer _id;
+    private Long _id;
     private String _name;
     private String[] _ingredients;
-    public Integer getId() {
+
+
+    public RecipeEntity(Long id, String name, String[] ingredients ) {
+        this._id = id;
+        this._name = name;
+        this._ingredients = ingredients;
+    }
+
+    public Long getId() {
         return _id;
     }
 
@@ -16,7 +24,7 @@ public class RecipeEntity {
         return _ingredients;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this._id = id;
     }
 

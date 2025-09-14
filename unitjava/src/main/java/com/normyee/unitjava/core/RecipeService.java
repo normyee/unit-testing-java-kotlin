@@ -6,7 +6,9 @@ public class RecipeService {
         this._recipeRepository = recipeRepository;
     }
 
-//    public RecipeDTO create() {
-//
-//    }
+    public RecipeDTO create(RecipeDTO dto) {
+        var createdRecipe = this._recipeRepository.create(dto);
+
+        return new RecipeDTO(createdRecipe.getId(), createdRecipe.getName(), createdRecipe.getIngredients());
+    }
 }
